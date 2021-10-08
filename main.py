@@ -35,6 +35,7 @@ import jokes
 from googletrans import Translator
 
 
+
 def get_quote():
     response = requests.get('https://zenquotes.io/api/random')
     json_data = json.loads(response.text)
@@ -47,6 +48,7 @@ def get_quote():
 keep_alive()
 
 bot = commands.Bot('$',activity=discord.Game(" $help | This was coded by addison"))
+bot.remove_command('help')
 
 
 
@@ -663,6 +665,11 @@ async def createavatar(ctx, a=None):
         await ctx.send(embed=embed)
 
 @bot.command()
+async  def source(ctx):
+ embed=discord.Embed(title="Github is the blue thing, Click it!", url="https://github.com/KeySystem10/discord.py-bot/tree/main", color=0x860e0e)
+ await ctx.send(embed=embed)
+
+@bot.command()
 async def help(ctx):
   embed=discord.Embed(title="Help! :dog:", description="This is help!", color=0xd4ff00)
   embed.set_author(name="Get help")
@@ -975,4 +982,4 @@ async def dice (ctx):
         await ctx.send(rating)
 
 
-bot.run('you're token here')
+bot.run('youre token here!')
